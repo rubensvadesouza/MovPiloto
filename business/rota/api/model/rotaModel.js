@@ -3,22 +3,30 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var TaskSchema = new Schema({
-  name: {
+var RotaSchema = new Schema({
+  Numero: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: 'Entre com o Numero da Load'
   },
-  Created_date: {
+  DataRecebimento: {
     type: Date,
     default: Date.now
   },
-  status: {
+  DataInicio: {
+    type: Date,
+    default: null
+  },
+  DataTermino: {
+    type: Date,
+    default: null
+  },
+  Status: {
     type: [{
       type: String,
-      enum: ['pending', 'ongoing', 'completed']
+      enum: ['Recebido', 'Em Execucao', 'Finalizado']
     }],
-    default: ['pending']
+    default: ['Recebido']  
   }
 });
 
-module.exports = mongoose.model('Tasks', TaskSchema);
+module.exports = mongoose.model('Rota', RotaSchema);
