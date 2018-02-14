@@ -1,4 +1,5 @@
 var promise = require('bluebird');
+
 var options = {
     promiseLib: promise
 };
@@ -9,7 +10,7 @@ var pgp = require('pg-promise')(options);
 module.exports = {
     db: pgp({
         user: config.username,
-        host: 'localhost',
+        host: config.hostName,
         database: config.database,
         password: config.password,
         port: 5432,
