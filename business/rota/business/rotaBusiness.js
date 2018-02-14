@@ -1,21 +1,6 @@
 'use strict';
 
-var promise = require('bluebird');
-
-var options = {
-    promiseLib: promise
-};
-
-var config = require("../config/config");
-
-var pgp = require('pg-promise')(options);
-var db = pgp({
-    user: config.username,
-    host: 'localhost',
-    database: config.database,
-    password: config.password,
-    port: 5432,
-});
+var db = require('../repository/pgPromisse').db;
 
 function listarRota(req, res, next) {
     db.any('select * from public.rota')
@@ -34,6 +19,10 @@ function listarRota(req, res, next) {
 
 function obterRota(req, res, next) {
     var rotaId = parseInt(req.params.rotaId);
+
+
+
+
     db.one('select * from public.rota where id = $1', rotaId)
         .then(function (data) {
             res.status(200)
