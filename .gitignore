@@ -62,3 +62,7 @@ typings/
 
 #Visual Studio Code
 .vscode
+.vs
+
+#Resharper
+_ReSharper.Caches
