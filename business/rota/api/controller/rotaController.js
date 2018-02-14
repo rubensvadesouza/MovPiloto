@@ -1,31 +1,17 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-RotaModel = mongoose.model('Rota');
+const bus = require('../../business/rotaBusiness');
 
+exports.listarRotas = function (req, res, next) {
+    return bus.listarRota(req, res, next);
+};
 
-  exports.listarRotas = function(req, res) {
-  RotaModel.find({}, function(err, rota) {
-    if (err)
-      res.send(err);
-    res.json(rota);
-  });
+exports.incluirRota = function (req, res, next) {
+    return bus.inserirRota(req, res, next);
+};
+
+exports.obterRota = function (req, res, next) {
+    return bus.obterRota(req, res, next);
 };
 
 
-exports.incluirRota = function(req, res) {
-  var rota = new RotaModel(req.body);
-  rota.save(function(err, rota) {
-    if (err)
-      res.send(err);
-    res.json(rota);
-  });
-};
-
-exports.obterRota = function(req, res) {
-  RotaModel.findById(req.params.rotaId, function(err, rota) {
-    if (err)
-      res.send(err);
-    res.json(rota);
-  });
-};
