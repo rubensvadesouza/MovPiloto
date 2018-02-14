@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\api"
+    "\\api",
+    "\\api\\controller",
+    "\\business",
+    "\\config",
+    "\\repository"
   ],
-  "SelectedNode": "\\app.js",
+  "SelectedNode": "\\api\\controller\\rotaController.js",
   "PreviewInSolutionExplorer": false
 }

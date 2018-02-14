@@ -59,21 +59,6 @@ function obterRota(req, res, next) {
         });
 }
 
-//function obterRota(req, res, next) {
-//    var rotaId = parseInt(req.params.rotaId);
-//    var rota;
-//    var rota = db.one('select * from public.rota where id = $1', rotaId).then(data => { rota = data; });
-//    var paradas = obterParadas(rotaId).then(data => { return data });
-
-
-//    res.status(200)
-//        .json({
-//            status: 'success',
-//            data: data,
-//            message: 'Obtido Uma Rota'
-//        });
-//}
-
 function inserirRota(req, res, next) {
     db.any('insert into public.rota(numero, data)' + 'values($1, $2) RETURNING id', [req.body.numero, req.body.data])
         .then(data => {
